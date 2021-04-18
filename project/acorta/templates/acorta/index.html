@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+    <form action="" method="POST">
+        <p>Add new content:</p>
+            <p> Type original URL: <input name="url" type=text></p>
+            <p> Type shortered URL: <input name="short" type="text" /></p>
+            <input type="submit" name="action" value="Submit"></ul>
+        </ul>
+    </form>
+
+    {% if content_list %}
+    <p><b>Shortened urls = original urls</p>
+    <ul>
+    {% for content in content_list %}
+        <li><a href="/acorta/{{ content.key }}">{{ content.key }}</a> = <a href="/acorta/{{ content.key }}">{{ content.url }} </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No contents are available.</p>
+{% endif %}
+</body>
+</html>
